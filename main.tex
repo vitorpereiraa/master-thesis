@@ -32,7 +32,7 @@ english, % english for English;
 singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing (for drafting/reading purposes)
 %draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
 %nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
-liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents (not recommended)
+liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents (recommended)
 %toctotoc, % Uncomment to add the main table of contents to the table of contents (not recommended)
 parskip, % Add space between paragraphs (recommended)
 %nohyperref, % Uncomment to not load the hyperref package (not recommended)
@@ -74,15 +74,20 @@ headsepline, % Uncomment to get a line under the header
 
 \author{John \textsc{Smith}} % Your name, this is used in the title page, print it elsewhere with \authorname
 
-\subjectarea{Computer Systems} % Specialisation area (Computer Systems, Information and Knowledge Systems, Graphics, Systems and Multimedia, Software Engineering), used in the title page, print it elsewhere with \areaname
+\subjectarea{Cybersecurity And Systems Administration} % Specialisation area (Cybersecurity and Systems Administration; Data Engineering; Software Engineering;Games, Graphics and Interactive Systems; Information and Knowledge Systems), used in the title page, print it elsewhere with \areaname
 
-\supervisor{Dr. James \textsc{Smith}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+\advisor{Dr. Jane \textsc{Smith}} % Your advisors's (academic mentor) name, this is used in the title page, print it elsewhere with \advname
 
-%\cosupervisor{Dr. Jack \textsc{Smith}} % Your co-supervisor's name, this is used in the title page, print it elsewhere with \cosupname (comment, if no co-supervisor)
+\supervisor{Dr. James \textsc{Smith}} % Your supervisor's (company, hosting institution mentor) name, this is used in the title page, print it elsewhere with \supname (comment, if no supervisor, or same as advisor)
 
-\committeepresident{Dr. Jonny Smith, Professor, DEI/ISEP} % Name of the president of the evaluation committee, print it elsewhere with \presidentname
+%\coadvisor{Dr. Jack \textsc{Smith}} % Your co-advisors's name, this is used in the title page, print it elsewhere with \coadvname (comment, if no co-advisor)
 
-\committeemembers{Dr. Jaimie Smith, Professor, DEI/ISEP\\Dr. Jones Smith, Professor, DEI/ISEP\\Dr. Jagger Smith, Professor, DEI/ISEP} % Name of the evaluation committee members (up to four), print it elsewhere with \committee
+%\cosupervisor{Dr. Jack \textsc{Smith}} % Your co-advisors's name, this is used in the title page, print it elsewhere with \cosupname (comment, if no co-supervisor)
+
+% if committeepresident is defined, will add the thesis committee to the front page
+%\committeepresident{Dr. Jonny Smith, Professor, DEI/ISEP} % Name of the president of the evaluation committee, print it elsewhere with \presidentname
+
+%\committeemembers{Dr. Jaimie Smith, Professor, DEI/ISEP\\Dr. Jones Smith, Professor, DEI/ISEP\\Dr. Jagger Smith, Professor, DEI/ISEP} % Name of the evaluation committee members (up to four), print it elsewhere with \committee
 
 \keywords{Keyword1, ..., Keyword6} % Please define up to 6 keywords that better describe your work, print it elsewhere with \keywordnames
 
@@ -128,16 +133,15 @@ headsepline, % Uncomment to get a line under the header
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - APPENDICES
 %----------------------------------------------------------------------------------------
-
-\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
-
 % Include the appendices of the thesis as separate files from the Appendices folder
 % Uncomment the lines as you write the Appendices
+\begin{appendices}
 
 \input{appendices/appendixA}
 %\input{appendices/appendixB}
 %\input{appendices/appendixC}
 
+\end{appendices}
 %----------------------------------------------------------------------------------------
 
 \end{document}

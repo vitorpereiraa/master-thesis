@@ -1,12 +1,18 @@
 # README #
 
-*TMDEI Dissertation  LaTeX Template - Version 0.1 (Dec/2015)*
+*TMDEI Dissertation  LaTeX Template*
 
 This template explains the main formatting rules to apply to a Master Dissertation work for TMDEI, of the MSc in Computer Engineering of the Computer Engineering Department (DEI) of the School of Engineering (ISEP) of the Polytechnic of Porto (IPP).
 
-**You can fork this repository to make your own dissertation based on this template.**
+**You can fork [this repository](https://github.com/MEI-ISEP/tmdei-dissertation-template) to make your own dissertation based on this template.**
 
-This template is based on MastersDoctoralThesis version 1.2 by Vel (vel@latextemplates.com) and Johannes Böttcher, downloaded from [LaTeXTemplates](http://www.LaTeXTemplates.com) in November/2015. Adapted to TMDEI/ISEP style (Dec/2015) by Nuno Pereira and Paulo Baltarejo (DEI/ISEP).
+Based on MastersDoctoralThesis version 1.2 by Vel (vel@latextemplates.com) and Johannes Böttcher, downloaded from [LaTeXTemplates](http://www.LaTeXTemplates.com) in November/2015. Adapted to TMDEI/ISEP style (Dec/2015) by Nuno Pereira and Paulo Baltarejo (DEI/ISEP).
+
+## Also on Overleaf (recommended for Windows users) ##
+
+"Overleaf is an online LaTeX and Rich Text collaborative writing and publishing tool that makes the whole process of writing, editing and publishing scientific documents much quicker and easier".
+
+This template is also available as a [template at Overleaf](https://www.overleaf.com/latex/templates/dissertation-template-for-the-msc-in-computer-engineering-dei-isep/dtvkwwtwzccc).
 
 ## How do I get set up? ##
 
@@ -17,6 +23,8 @@ Just fork the repository and use it. You will need LaTeX tools installed in your
 LaTeX is available for many systems including Windows, Linux and Mac OS X. Check the webpage for the LaTex project for more information: <https://latex-project.org/ftp.html>.
 
 Make sure you have the following tools installed: **pdflatex**, **makeglossaries**, **biber**, **latexmk**.
+
+**NOTE: The Makefile works for Linux and MacOs; Windows users are recommended to use Overleaf, or build manually**
 
 ### LaTeX Packages Needed
 

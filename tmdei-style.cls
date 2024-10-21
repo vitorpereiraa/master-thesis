@@ -203,6 +203,7 @@
 \RequirePackage[centerlast,small,sc]{caption} % Required for customising the captions
 \setlength{\captionmargin}{50pt}
 
+\RequirePackage[titletoc,title]{appendix}
 %----------------------------------------------------------------------------------------
 
 \newcommand{\checktoopen}{% New command to move content to the next page which prints to the next odd page if twosided mode is active  
@@ -294,6 +295,8 @@ KOMA-script documentation for details.}]{fancyhdr}
 
 \def\authorname{}
 \def\ttitle{}
+\newcommand*{\advisor}[1]{\def\advname{#1}}
+\newcommand*{\coadvisor}[1]{\def\coadvname{#1}}
 \newcommand*{\supervisor}[1]{\def\supname{#1}}
 \newcommand*{\cosupervisor}[1]{\def\cosupname{#1}}
 \newcommand*{\thesistitle}[1]{\def\@title{#1}\def\ttitle{#1}}
@@ -314,12 +317,18 @@ KOMA-script documentation for details.}]{fancyhdr}
 \newcommand{\dissertationdisclamer}{A dissertation submitted in partial fulfilment of the \\ requirements for the degree of Master of Science, Area of}
 \providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\dissertationdisclamer}{A dissertation submitted in partial fulfillment of \\ the requirements for the degree of Master of Science, Specialisation Area of}
 \providecaptionname{portuguese}{\dissertationdisclamer}{Disserta\c{c}\~ao para obten\c{c}\~ao do Grau de Mestre em \\ Engenharia Inform\'atica, \'Area de Especializa\c{c}\~ao em\\} % Portuguese 
+\newcommand{\advisorlabel}{Orientador}
+\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\advisorlabel}{Advisor}
+\providecaptionname{portuguese}{\advisorlabel}{Orientador}
+\newcommand{\coadvisorlabel}{Co-Advisor}
+\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\coadvisorlabel}{Co-Advisor}
+\providecaptionname{portuguese}{\coadvisorlabel}{Co-Orientador}
 \newcommand{\supervisorlabel}{Supervisor}
 \providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\supervisorlabel}{Supervisor}
-\providecaptionname{portuguese}{\supervisorlabel}{Orientador}
+\providecaptionname{portuguese}{\supervisorlabel}{Supervisor}
 \newcommand{\cosupervisorlabel}{Co-Supervisor}
 \providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\cosupervisorlabel}{Co-Supervisor}
-\providecaptionname{portuguese}{\cosupervisorlabel}{Co-Orientador}
+\providecaptionname{portuguese}{\cosupervisorlabel}{Co-Supervisor}
 \newcommand{\evallabel}{Evaluation Committee}
 \providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\evallabel}{Evaluation Committee}
 \providecaptionname{portuguese}{\evallabel}{J\'uri}
@@ -333,31 +342,59 @@ KOMA-script documentation for details.}]{fancyhdr}
 \newcommand{\maketitlepage}{
 	\checktoopen
 	\begin{titlepage}
-	\includegraphics[width=2.5in]{/frontmatter/assets/isep-logo-new.jpeg} \\
-	\null\vfil
+	{\centering \includegraphics[width=3in]{/frontmatter/assets/isep_logo.pdf} \\}
+	\null\vfill
 	\begin{center}
 	{\Huge \bfseries \ttitle}\\ % Thesis title
-	\ifdefined\tsubtitle {\huge \bfseries \tsubtitle} \\ \fi % Thesis sub title, if exists
+	\ifdefined\tsubtitle {\huge \bfseries \tsubtitle} \\ \fi % thesis sub title, if exists
 	\vfill
 	{\huge \bfseries \authorname}\\
 	\vfill
 	{\Large \bfseries \dissertationdisclamer~\subjectname}
 	\end{center}
 	\vfill
+	{\large \bfseries \noindent \advisorlabel: \advname } \\
+	\ifdefined\cosupname {\large \bfseries \coadvisorlabel: \coadvname} \\ \fi
 	{\large \bfseries \noindent \supervisorlabel: \supname } \\
 	\ifdefined\cosupname {\large \bfseries \cosupervisorlabel: \cosupname} \\ \fi
 	\vfill
-	{\normalsize \bfseries \noindent \evallabel:} \\
-	{\normalsize \presidentlabel: } \\
-	\bigskip
-	{\normalsize \presidentname } \\
-	{\normalsize \memberslabel:} \\
-	{\normalsize \committee } \\
-	\smallskip \\
+        % add the thesis committee, if committeepresident is defined
+        \ifdefined\presidentname { 
+    	{\normalsize \bfseries \noindent \evallabel:} \\
+    	{\normalsize \presidentlabel: } \\
+    	\bigskip
+    	{\normalsize \presidentname } \\
+    	{\normalsize \memberslabel:} \\
+    	{\normalsize \committee } \\
+    	\smallskip \\}
+        \fi 
 	\begin{center}
 	{\normalsize \tdate} % Date
 	\end{center}
 	\end{titlepage}
+}
+
+%----------------------------------------------------------------------------------------
+%	STATEMENT OF INTEGRITY
+%----------------------------------------------------------------------------------------
+
+\newcommand{\statementlabel}{Statement of Integrity}
+\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\statementlabel}{Statement of Integrity}
+\providecaptionname{portuguese}{\statementlabel}{Declara\c{c}\~ao de Integridade} % Portuguese
+
+\newcommand{\statementtext}{I hereby declare having conducted this academic work with integrity.\\I have not plagiarised or applied any form of undue use of information or falsification of results along the process leading to its elaboration.\\Therefore the work presented in this document is original and authored by me, having not previously been used for any other end.\\I further declare that I have fully acknowledged the Code of Ethical Conduct of P.PORTO.\\ISEP, \tdate}
+\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\statementtext}{I hereby declare having conducted this academic work with integrity.\\\\I have not plagiarised or applied any form of undue use of information or falsification of results along the process leading to its elaboration.\\\\Therefore the work presented in this document is original and authored by me, having not previously been used for any other end.\\\\I further declare that I have fully acknowledged the Code of Ethical Conduct of P.PORTO.\\\\ISEP, \tdate}
+\providecaptionname{portuguese}{\statementtext}{Declaro ter conduzido este trabalho acad\'emico com integridade.\\\\N\~{a}o plagiei ou apliquei qualquer forma de uso indevido de informa\c{c}\~{o}es ou falsifica\c{c}\~{a}o de resultados ao longo do processo que levou \`{a} sua elabora\c{c}\~{a}o.\\\\Portanto, o trabalho apresentado neste documento \'{e} original e de minha autoria, n\~{a}o tendo sido utilizado anteriormente para nenhum outro fim.\\\\Declaro ainda que tenho pleno conhecimento do C\'{o}digo de Conduta \'{E}tica do P.PORTO.\\\\ISEP, \tdate} % Portuguese
+
+\newenvironment{integritystatement}{
+	\checktoopen
+	\tttypeout{\statementlabel}
+	\thispagestyle{plain}
+	\chapter*{\statementlabel}
+	\statementtext
+}
+{
+  \vfil\vfil\vfil\null
 }
 
 %----------------------------------------------------------------------------------------
@@ -367,6 +404,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 \newcommand{\dedicationlabel}{Dedicatory}
 \providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\dedicationlabel}{Dedicatory}
 \providecaptionname{portuguese}{\dedicationlabel}{Dedicat\'oria} % Portuguese 
+
 \newenvironment{dedicatory}{
 	\checktoopen
 	\tttypeout{\dedicationlabel}
@@ -376,7 +414,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 {
   \vfil\vfil\vfil\null
 }
-
+    
 %----------------------------------------------------------------------------------------
 %	ABSTRACT PAGE DESIGN
 %----------------------------------------------------------------------------------------
